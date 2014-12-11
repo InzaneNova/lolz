@@ -28,7 +28,7 @@ public class PixelArt extends Canvas implements Runnable {
 		setMaximumSize(d);
 		setPreferredSize(d);
 
-		frame = new JFrame("lol");
+		frame = new JFrame("Pixel Art");
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setResizable(true);
 		frame.add(this);
@@ -46,9 +46,20 @@ public class PixelArt extends Canvas implements Runnable {
 //			float i = stmt.parseStatement(xtest, ytest, WIDTH, HEIGHT);
 //			output("At x = " + xtest+  " and y = " + ytest + ":   f(x, y) = " + stmt.getStatement() + " = " + i, "test");
 
-			Statement stmtr = new Statement(inputString("skriv en funksjon med x, y, w, h"));
-			Statement stmtg = new Statement(inputString("skriv en funksjon med x, y, w, h"));
-			Statement stmtb = new Statement(inputString("skriv en funksjon med x, y, w, h"));
+			Statement stmtr;
+			do {
+				stmtr = new Statement(inputString("Write a function for red color with variables: x, y, w, h"));
+			} while (!Statement.isValidStmt(stmtr.getStatement()));
+
+			Statement stmtg;
+			do {
+				stmtg = new Statement(inputString("Write a function for green color with variables: x, y, w, h"));
+			} while (!Statement.isValidStmt(stmtg.getStatement()));
+
+			Statement stmtb;
+			do {
+				stmtb = new Statement(inputString("Write a function for blue color with variables: x, y, w, h"));
+			} while (!Statement.isValidStmt(stmtb.getStatement()));
 
 			int r, g, b;
 
@@ -63,8 +74,8 @@ public class PixelArt extends Canvas implements Runnable {
 //					b = (int) ((xy3 * 255) - cool * 255);
 
 					r = (int) stmtr.parseStatement(x, y, WIDTH, HEIGHT);
-					g = (int) stmtg.parseStatement(x, y, WIDTH, HEIGHT);
 					b = (int) stmtb.parseStatement(x, y, WIDTH, HEIGHT);
+					g = (int) stmtg.parseStatement(x, y, WIDTH, HEIGHT);
 
 					pixels[x + y * WIDTH] = (r << 16) + (g << 8) + b;
 				}
@@ -72,10 +83,10 @@ public class PixelArt extends Canvas implements Runnable {
 
 			render();
 
-			output("red = " + stmtr.getStatement() +
-					"\ngreen = " + stmtg.getStatement() +
-					"\nblue = " + stmtb.getStatement(),
-					"Info");
+			output("red   = " + stmtr.getStatement() +
+				   "\ngreen = " + stmtg.getStatement() +
+				   "\nblue  = " + stmtb.getStatement(),
+				   "Color Functions");
 		}
 	}
 

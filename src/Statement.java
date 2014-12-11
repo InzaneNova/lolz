@@ -115,9 +115,13 @@ public class Statement {
 	}
 
 	public static boolean isValidStmt(String stmt) {
+		if(stmt.length() == 0) {
+			PixelArt.output("An empty function is not valid.", "ERROR");
+			return false;
+		}
 		for (int i = 0; i < stmt.length(); i++) {
 			if (ACCEPTED_CHARACTERS.indexOf(stmt.charAt(i)) < 0) {
-				PixelArt.output("The statement is not valid.", "ERROR");
+				PixelArt.output("The function:\nColor = " + stmt + "\n is not valid.", "ERROR");
 				return false;
 			}
 		}
