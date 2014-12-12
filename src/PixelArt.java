@@ -40,11 +40,11 @@ public class PixelArt extends Canvas implements Runnable {
 
 	public void run() {
 		while (running) {
-//			Statement stmt = new Statement(inputString("skriv en funksjon med x og y"));
-//			int xtest = inputInt("input a number, x");
-//			int ytest = inputInt("input a number, y");
-//			float i = stmt.parseStatement(xtest, ytest, WIDTH, HEIGHT);
-//			output("At x = " + xtest+  " and y = " + ytest + ":   f(x, y) = " + stmt.getStatement() + " = " + i, "test");
+			Statement stmt = new Statement(inputString("skriv en funksjon med x og y"));
+			int xtest = inputInt("input a number, x");
+			int ytest = inputInt("input a number, y");
+			double i = stmt.parseStatement(xtest, ytest, WIDTH, HEIGHT);
+			output("At x = " + xtest+  " and y = " + ytest + ":   f(x, y) = " + stmt.getStatement() + " = " + i, "test");
 
 			Statement stmtr;
 			do {
