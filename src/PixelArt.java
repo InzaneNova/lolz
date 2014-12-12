@@ -10,7 +10,7 @@ import java.awt.image.DataBufferInt;
 public class PixelArt extends Canvas implements Runnable {
 
 	private static final int WIDTH = 720;
-	private static final int HEIGHT = (WIDTH / 16) * 9;
+	private static final int HEIGHT = WIDTH;
 	private static final Dimension d = new Dimension(WIDTH, HEIGHT);
 
 	private JFrame frame;
