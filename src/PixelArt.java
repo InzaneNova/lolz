@@ -30,7 +30,7 @@ public class PixelArt extends Canvas implements Runnable {
 
 		frame = new JFrame("Pixel Art");
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.setResizable(true);
+		frame.setResizable(false);
 		frame.add(this);
 		frame.pack();
 		frame.setVisible(true);
