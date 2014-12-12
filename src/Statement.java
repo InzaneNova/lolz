@@ -45,7 +45,7 @@ public class Statement {
 		for (int i = 0; i < terms.size(); i++) {
 			boolean isNextImportant = false;
 			if (i < terms.size() - 2)
-				isNextImportant = (terms.get(i + 2).charAt(0) == '*') || (terms.get(i + 2).charAt(0) == '*');
+				isNextImportant = (terms.get(i + 2).charAt(0) == '*') || (terms.get(i + 2).charAt(0) == '/');
 			char operator = terms.get(i).charAt(0);
 			if (contains(OPERATORS2, operator)) {
 				float a = Float.parseFloat(terms.get(i - 1));
@@ -63,7 +63,9 @@ public class Statement {
 				terms.remove(i);
 				terms.set(i - 1, "" + temp_res);
 
-				if (isNextImportant) i -= 2;
+				if (isNextImportant) {
+					i--;
+				}
 			}
 		}
 
@@ -73,13 +75,6 @@ public class Statement {
 				result += Float.parseFloat(terms.get(i));
 			} else if (operator == '-') {
 				result -= Float.parseFloat(terms.get(i));
-
-			} else if (operator == '*') {
-				result *= Float.parseFloat(terms.get(i));
-
-			} else if (operator == '/') {
-				result /= Float.parseFloat(terms.get(i));
-
 			}
 		}
 
