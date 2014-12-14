@@ -58,7 +58,6 @@ public class Statement {
 				terms.remove(m + 1);
 				terms.set(m, "" + Math.sqrt(a));
 			} else if (method.equals(METHODS[1])) {
-				PixelArt.output("her: " + terms.get(0), "info");
 				double a = Double.parseDouble(terms.get(m + 1));
 				if (!contains(NUMBERS, terms.get(m + 1).charAt(terms.get(m+1).length()-1))) {
 					a = Double.parseDouble(terms.get(m + 2));
@@ -121,7 +120,6 @@ public class Statement {
 		int termPos = 0;
 
 		for (int i = 0; i < stmt.length(); i++) {
-			PixelArt.output("i = " + i, "info");
 			char c = stmt.charAt(i);
 
 			if (!insideParentheses) {
