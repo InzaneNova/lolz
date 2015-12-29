@@ -23,6 +23,9 @@ public class PixelArt extends Canvas implements Runnable {
 		pa.start();
 	}
 
+	/*
+	 * Sets up the screen and starts the main thread.
+	 */
 	private void start() {
 		setMinimumSize(d);
 		setMaximumSize(d);
@@ -45,6 +48,7 @@ public class PixelArt extends Canvas implements Runnable {
 //			int ytest = inputInt("input a number, y");
 //			double i = stmt.parseStatement(xtest, ytest, WIDTH, HEIGHT);
 //			output("At x = " + xtest+  " and y = " + ytest + ":   f(x, y) = " + stmt.getStatement() + " = " + i, "test");
+			// Test code.
 
 			Statement stmtr;
 			do {
@@ -61,21 +65,19 @@ public class PixelArt extends Canvas implements Runnable {
 				stmtb = new Statement(inputString("Write a function for blue color with variables: x, y, w, h"));
 			} while (!Statement.isValidStmt(stmtb.getStatement()));
 
-			int r, g, b;
-
 			for (int y = 0; y < HEIGHT; y++) {
 				for (int x = 0; x < WIDTH; x++) {
 //					double xy1 = (x * y) / ((double) WIDTH * (double) HEIGHT);
 //					double xy2 = ((WIDTH - x) * y) / ((double) WIDTH * (double) HEIGHT);
 //					double xy3 = (x * (HEIGHT - y)) / ((double) WIDTH * (double) HEIGHT);
 //					double cool = ((WIDTH - x) * (HEIGHT - y)) / ((double) WIDTH * (double) HEIGHT);
-//					r = (int) ((xy1 * 255) - cool * 255);
-//					g = (int) ((xy2 * 255) - cool * 255);
-//					b = (int) ((xy3 * 255) - cool * 255);
+//					int r = (int) ((xy1 * 255) - cool * 255);
+//					int g = (int) ((xy2 * 255) - cool * 255);
+//					int b = (int) ((xy3 * 255) - cool * 255);
 
-					r = (int) stmtr.parseStatement(x, y, WIDTH, HEIGHT);
-					b = (int) stmtb.parseStatement(x, y, WIDTH, HEIGHT);
-					g = (int) stmtg.parseStatement(x, y, WIDTH, HEIGHT);
+					int r = (int) stmtr.parseStatement(x, y, WIDTH, HEIGHT);
+					int b = (int) stmtb.parseStatement(x, y, WIDTH, HEIGHT);
+					int g = (int) stmtg.parseStatement(x, y, WIDTH, HEIGHT);
 
 					pixels[x + y * WIDTH] = (r << 16) + (g << 8) + b;
 				}

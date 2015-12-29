@@ -15,7 +15,9 @@ public class Statement {
 	private static final String OTHER = "()";
 	private static final String[] METHODS = new String[]{
 			"SQRT",
-			"ABS"
+			"ABS",
+			"COS",
+			"SIN"
 	};
 	private static final String ACCEPTED_CHARACTERS = NUMBERS + OPERATORS + VARIABLES + OTHER + getMethodString();
 
@@ -66,6 +68,24 @@ public class Statement {
 
 				terms.remove(m + 1);
 				terms.set(m, "" + Math.abs(a));
+			} else if (method.equals(METHODS[2])) {
+				double a = Double.parseDouble(terms.get(m + 1));
+				if (!contains(NUMBERS, terms.get(m + 1).charAt(terms.get(m+1).length()-1))) {
+					a = Double.parseDouble(terms.get(m + 2));
+					terms.remove(m + 1);
+				}
+
+				terms.remove(m + 1);
+				terms.set(m, "" + Math.cos(a));
+			} else if (method.equals(METHODS[3])) {
+				double a = Double.parseDouble(terms.get(m + 1));
+				if (!contains(NUMBERS, terms.get(m + 1).charAt(terms.get(m+1).length()-1))) {
+					a = Double.parseDouble(terms.get(m + 2));
+					terms.remove(m + 1);
+				}
+
+				terms.remove(m + 1);
+				terms.set(m, "" + Math.sin(a));
 			}
 		}
 
